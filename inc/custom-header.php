@@ -8,39 +8,39 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package undervuejs
+ * @package undervue
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses undervuejs_header_style()
+ * @uses undervue_header_style()
  */
-function undervuejs_custom_header_setup() {
+function undervue_custom_header_setup() {
 	add_theme_support(
 		'custom-header',
 		apply_filters(
-			'undervuejs_custom_header_args',
+			'undervue_custom_header_args',
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
 				'width'              => 1000,
 				'height'             => 250,
 				'flex-height'        => true,
-				'wp-head-callback'   => 'undervuejs_header_style',
+				'wp-head-callback'   => 'undervue_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'undervuejs_custom_header_setup' );
+add_action( 'after_setup_theme', 'undervue_custom_header_setup' );
 
-if ( ! function_exists( 'undervuejs_header_style' ) ) :
+if ( ! function_exists( 'undervue_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see undervuejs_custom_header_setup().
+	 * @see undervue_custom_header_setup().
 	 */
-	function undervuejs_header_style() {
+	function undervue_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

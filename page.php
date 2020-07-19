@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package undervuejs
+ * @package undervue
  */
 
 get_header();

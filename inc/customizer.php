@@ -1,8 +1,8 @@
 <?php
 /**
- * undervuejs Theme Customizer
+ * undervue Theme Customizer
  *
- * @package undervuejs
+ * @package undervue
  */
 
 /**
@@ -10,7 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function undervuejs_customize_register( $wp_customize ) {
+function undervue_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -20,26 +20,26 @@ function undervuejs_customize_register( $wp_customize ) {
 			'blogname',
 			array(
 				'selector'        => '.site-title a',
-				'render_callback' => 'undervuejs_customize_partial_blogname',
+				'render_callback' => 'undervue_customize_partial_blogname',
 			)
 		);
 		$wp_customize->selective_refresh->add_partial(
 			'blogdescription',
 			array(
 				'selector'        => '.site-description',
-				'render_callback' => 'undervuejs_customize_partial_blogdescription',
+				'render_callback' => 'undervue_customize_partial_blogdescription',
 			)
 		);
 	}
 }
-add_action( 'customize_register', 'undervuejs_customize_register' );
+add_action( 'customize_register', 'undervue_customize_register' );
 
 /**
  * Render the site title for the selective refresh partial.
  *
  * @return void
  */
-function undervuejs_customize_partial_blogname() {
+function undervue_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
@@ -48,14 +48,14 @@ function undervuejs_customize_partial_blogname() {
  *
  * @return void
  */
-function undervuejs_customize_partial_blogdescription() {
+function undervue_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function undervuejs_customize_preview_js() {
-	wp_enqueue_script( 'undervuejs-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function undervue_customize_preview_js() {
+	wp_enqueue_script( 'undervue-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'undervuejs_customize_preview_js' );
+add_action( 'customize_preview_init', 'undervue_customize_preview_js' );

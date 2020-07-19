@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package undervuejs
+ * @package undervue
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function undervuejs_body_classes( $classes ) {
+function undervue_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -24,14 +24,14 @@ function undervuejs_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'undervuejs_body_classes' );
+add_filter( 'body_class', 'undervue_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function undervuejs_pingback_header() {
+function undervue_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'undervuejs_pingback_header' );
+add_action( 'wp_head', 'undervue_pingback_header' );

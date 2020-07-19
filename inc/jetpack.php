@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package undervuejs
+ * @package undervue
  */
 
 /**
@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function undervuejs_jetpack_setup() {
+function undervue_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'undervuejs_infinite_scroll_render',
+			'render'    => 'undervue_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function undervuejs_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'undervuejs-style',
+				'stylesheet' => 'undervue-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,12 +48,12 @@ function undervuejs_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'undervuejs_jetpack_setup' );
+add_action( 'after_setup_theme', 'undervue_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function undervuejs_infinite_scroll_render() {
+function undervue_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

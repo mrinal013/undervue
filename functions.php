@@ -1,10 +1,10 @@
 <?php
 /**
- * undervuejs functions and definitions
+ * undervue functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package undervuejs
+ * @package undervue
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-if ( ! function_exists( 'undervuejs_setup' ) ) :
+if ( ! function_exists( 'undervue_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -20,14 +20,14 @@ if ( ! function_exists( 'undervuejs_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function undervuejs_setup() {
+	function undervue_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on undervuejs, use a find and replace
-		 * to change 'undervuejs' to the name of your theme in all the template files.
+		 * If you're building a theme based on undervue, use a find and replace
+		 * to change 'undervue' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'undervuejs', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'undervue', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,7 +50,7 @@ if ( ! function_exists( 'undervuejs_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'undervuejs' ),
+				'menu-1' => esc_html__( 'Primary', 'undervue' ),
 			)
 		);
 
@@ -75,7 +75,7 @@ if ( ! function_exists( 'undervuejs_setup' ) ) :
 		add_theme_support(
 			'custom-background',
 			apply_filters(
-				'undervuejs_custom_background_args',
+				'undervue_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
@@ -102,7 +102,7 @@ if ( ! function_exists( 'undervuejs_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'undervuejs_setup' );
+add_action( 'after_setup_theme', 'undervue_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -111,25 +111,25 @@ add_action( 'after_setup_theme', 'undervuejs_setup' );
  *
  * @global int $content_width
  */
-function undervuejs_content_width() {
+function undervue_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'undervuejs_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'undervue_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'undervuejs_content_width', 0 );
+add_action( 'after_setup_theme', 'undervue_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function undervuejs_widgets_init() {
+function undervue_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'undervuejs' ),
+			'name'          => esc_html__( 'Sidebar', 'undervue' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'undervuejs' ),
+			'description'   => esc_html__( 'Add widgets here.', 'undervue' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -137,22 +137,22 @@ function undervuejs_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'undervuejs_widgets_init' );
+add_action( 'widgets_init', 'undervue_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function undervuejs_scripts() {
-	wp_enqueue_style( 'undervuejs-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'undervuejs-style', 'rtl', 'replace' );
+function undervue_scripts() {
+	wp_enqueue_style( 'undervue-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'undervue-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'undervuejs-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'undervue-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'undervuejs_scripts' );
+add_action( 'wp_enqueue_scripts', 'undervue_scripts' );
 
 /**
  * Implement the Custom Header feature.
